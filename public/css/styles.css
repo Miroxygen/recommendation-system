@@ -1,0 +1,122 @@
+body {
+  background-color: #FFB6C1;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Comic Sans MS', cursive; 
+  font-size: 14px; 
+}
+
+h1 {
+  color: #FF69B4; 
+  font-family: 'Comic Sans MS', cursive; 
+  font-size: 24px; 
+}
+
+#formcontainer {
+  display: inline-block;
+  background-color: #FFF8DC; 
+  padding: 20px;
+  border-radius: 15px; 
+  width: 40%; 
+}
+
+form {
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #FF69B4;
+}
+
+input {
+  display: flex;
+  flex-direction: row;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #FF69B4;
+  border-radius: 5px;
+  background-color: #FFF8DC;
+  color: #FF69B4;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  background-color: #FF69B4;
+  color: #FFFFFF;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#reccontainer {
+  width: 1000px;
+  height: 190px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 14px;
+  margin-top: 120px;
+}
+
+#first {
+  background-color: #dddddd;
+  font-family: 'Comic Sans Ms', cursive;
+  font-size: 18px;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  margin-left: 550px;
+  margin-top: -540px;
+}
+
+.title {
+  text-shadow: 2px 0 #888888;
+  letter-spacing:2px;
+  font-weight:bold;
+}
+
+
+#rec {
+  margin: auto;
+  background-color: #FFDAB9;
+  padding: 20px;
+  border-radius: 20px; 
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #FFA07A; /* Light Salmon for even rows */
+}
+
+tr:nth-child(odd) {
+  background-color: #FFC0CB; /* Pink for odd rows */
+}
+

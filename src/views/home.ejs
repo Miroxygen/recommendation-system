@@ -1,0 +1,64 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realtime Web Application</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body> 
+  <main>
+      <div id="rec">
+        <br>
+        <h2>Filmrekommendationer</h2>
+        <p>Hej och välkommna till mina filmrekommendationer!</p>
+        <p>Välj ditt namn i listan och få ett toppenval till kvällens film!</p>
+        <div id="formcontainer">
+        <form action="/data" method="POST">
+            <% if(users) { %>
+              <input type="radio" id="itembased" value="itembased" name="rectype">
+              <label for="item">Filmbaserad rekommendation (stöder endast euclidean)</label>
+              <input type="radio" id="userbased" value="userbased" name="rectype">
+              <label for="userbased">Användarbaserad rekommendation</label>
+              <label for="user">Välj användare</label>
+                <select name="user" id="user">
+                  <% for (let [key, value] of Object.entries(users)) { %>
+                    <option value=<%= key %>><%= value %></option>
+                  <% } %>
+                </select>
+            <% } %> 
+            <label for="method">Välj metod</label>
+            <select name="method" id="method">
+              <option value="euclidean_distance">Euclidean</option>
+              <option value="pearson">Pearson</option>
+            </select>
+            <button>Ge mig en film</button>
+        </form>
+      </div>
+      <% if (rec) { %>
+        <div id="first">
+          <img src="movie.png" alt="">
+          <p class="title">Titel :</p><p><%= rec[0].title %></p>
+          <p class="title">År</p><p><%= rec[0].year %></p>
+          <p class="title">Betyg</p><p><%= rec[0].score %></p>
+        </div>
+        <div id="reccontainer">
+          <p>Andra bra rekommendationer :</p>
+          <table>
+            <tr>
+              <td>Titel</td>
+              <td>År</td>
+              <td>Betyg</td>
+            </tr>
+          <% for(let i = 1; i < 3; i++) { %>
+            <tr>
+              <td><%= rec[i].title %></td>
+              <td><%= rec[i].year %></td>
+              <td><%= rec[i].score %></td>
+            </tr>
+          <% } %>
+          </table>
+        </div>
+      <% } %>
+    </div>
+  </main>  
+</body>
