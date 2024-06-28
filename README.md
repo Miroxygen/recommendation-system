@@ -2,6 +2,8 @@
 
 This project is a movie recommendation system that uses user ratings to recommend movies. It provides two types of recommendations: user-based and item-based, using either Euclidean distance or Pearson correlation for similarity calculations.
 
+This is a clone from my GitLab account. Commit history is not reflected.
+
 ## Core Functionalities
 
   -  User-based Recommendations: Recommends movies based on the similarity between users.
