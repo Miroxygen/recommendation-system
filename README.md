@@ -1,73 +1,79 @@
-# A1 - Recommendation System
+# Movie Recommendation System
 
-## Description
+This project is a movie recommendation system that uses user ratings to recommend movies. It provides two types of recommendations: user-based and item-based, using either Euclidean distance or Pearson correlation for similarity calculations.
 
-* In this assignment, you shall implement a recommendation system for the movie's data set.
-* You can use any programming language you like.
-* You shall present your application and code at an oral examination.
+## Core Functionalities
 
-## Submission instructions
+  -  User-based Recommendations: Recommends movies based on the similarity between users.
+  -  Item-based Recommendations: Recommends movies based on the similarity between items (movies).
+ -   Data Handling: Reads user, movie, and rating data from CSV files.
+  -  HTTP Server: Serves user, movie data, and recommendations through a simple HTTP server.
+  -  Frontend: Provides a simple web interface to view and create movie recommendations.
 
-See the [Deadlines and Submissions](https://coursepress.lnu.se/courses/web-intelligence/study-guide/deadlines-and-submissions) page.
+### Technologies Used
 
-## Requirements
+  -  JavaScript (Node.js): For the server-side logic and controllers.
+  -  Python: For handling data and generating recommendations.
+  -  Express.js: Web framework for building the server and handling routes.
+ -   EJS: Embedded JavaScript templating for rendering dynamic HTML pages.
+  -  fetch: For making HTTP requests.
+  -  pandas: For data manipulation in Python.
+  -  http.server: For creating a simple HTTP server in Python.
 
-<table>
-  <tr>
-    <th>Grade</th>
-    <th>Requirements</th>
-  </tr>
-  <tr>
-    <td>E</td>
-    <td>
-      <ul>
-        <li>Build a recommendation system that can find similar users and find recommendations for a user, using the <em>movies large</em> dataset (see <a href="https://coursepress.lnu.se/courses/web-intelligence/assignments/datasets">Datasets</a> page).</li>
-        <li>You can verify that your application works by using the example dataset from the lecture (see <a href="https://coursepress.lnu.se/courses/web-intelligence/assignments/datasets">Datasets</a> page).</li>
-        <li>Use Euclidean distance as the similarity measure.</li>
-        <li>Implement the system using a REST web service where:
-          <ol>
-            <li>client sends a request to a server</li>
-            <li>the server responds with <em>json</em> data</li>
-            <li>the <em>json</em> data is decoded and presented in a client GUI</li>
-          </ol>
-        </li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>C-D</td>
-    <td>
-    <ul>
-      <li>Implement the Pearson Correlation similarity measure.</li>
-      <li>It shall be possible to select which measure to use from the client GUI.</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>A-B</td>
-    <td>
-      <ul>
-        <li>Implement functionality for pre-generating an Item-Based Collaborative Filtering table by transforming the original data set.</li>
-        <li>Use the pre-generated table to implement a second way of finding recommendations for a user.</li>
-        <li>You shall only use Euclidean distance as the similarity measure.</li>
-        <li>It shall be possible to select how to find recommendations from the client GUI (Item-Based or User-Based).</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+## Project Structure
 
-## Test cases – small example dataset
+  1.  /src/controllers/
+      -  controller.js: Handles the logic for showing and creating movie recommendations.
+  2.  /src/python/
+      -  server.py: Python server for handling requests and generating recommendations.
+      -  functions/: Contains Python scripts for calculating recommendations.
+          -  euclidean_distance.py: Calculates Euclidean distance for recommendations.
+         -   item_based.py: Generates item-based recommendations.
+          -  movie_data.py: Handles movie data reading and processing.
+          -  recommendation.py: Generates user-based recommendations.
+  3.  /src/routes/
+      -  router.js: Defines the routes for the application.
+  4.  /src/views/
+     -   home.ejs: EJS template for the home page, showing recommendations.
+ 5.   /src/server.js: Main server file for the Node.js application.
 
-Here are some test cases for the small example dataset you can use to verify that your system works correctly.
+## Setup
 
-* Find recommended movies for user **Mike** using **Euclidean distance**:<br />![A1-small-Ex1.png](.readme/A1-small-Ex1.png)
-* Find recommended movies for user **Mike** using **Pearson similarity**:<br />![A1-small-Ex2.png](.readme/A1-small-Ex2.png)
-* Find recommended movies for user **Mike** using **Item-based filtering**:<br />![A1-small-Ex3.png](.readme/A1-small-Ex3.png)
+  1. Clone the repository:
 
-## Test cases – large dataset
+2. Install Node.js dependencies:
 
-Here are some test cases for the larger dataset you can use to verify that your system works correctly.
+    - npm install
 
-* Find recommended movies for user **Angela** using **Euclidean distance**:<br />![A1-Ex1.png](.readme/A1-Ex1.png)
-* Find recommended movies for user **Will** using **Pearson similarity**:<br />![A1-Ex2.png](.readme/A1-Ex2.png)
-* Find recommended movies for user **Andy** using **Item-based filtering**:<br />![A1-Ex3.png](.readme/A1-Ex3.png)
+3. Install Python dependencies:
+
+    - pip install pandas
+
+4. Set up environment variables in a .env file.
+
+5. Start the Python server:
+
+    - python src/python/server.py
+
+6. Start the Node.js server:
+
+    -  npm start
+
+## Usage
+
+1.  Run the Python server to handle data and generate recommendations.
+2.  Run the Node.js server to serve the frontend and handle user interactions.
+3.  Open your browser and navigate to http://localhost:3000.
+4.  Select your user and method, then get movie recommendations.
+
+## Dependencies
+
+-  Node.js: Ensure you have Node.js installed on your system.
+-  Express.js: Web framework for Node.js.
+-  EJS: Templating engine for generating HTML views.
+-  pandas: Python library for data manipulation.
+-  fetch: For making HTTP requests in Node.js.
+
+## License
+
+This project is licensed under the MIT License.
